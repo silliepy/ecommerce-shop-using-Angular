@@ -1,10 +1,9 @@
-import { environment } from './../environments/environment';
+import { LoginComponent } from './login/login.component';
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth'; 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -15,7 +14,6 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { ProductsAdminComponent } from './admin/products-admin/products-admin.component';
 import { OrdersAdminComponent } from './admin/orders-admin/orders-admin.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +30,16 @@ import { OrdersAdminComponent } from './admin/orders-admin/orders-admin.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    // AngularFireDatabaseModule,
-
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent },
+      { path: 'products', component: ProductsComponent },
+      { path: 'shopping-cart', component: ShoppingCartComponent },
+      { path: 'check-out', component: CheckoutComponent },
+      { path: 'order-success', component: OrderSuccessComponent }, 
+      { path: 'login', component: LoginComponent },
+      { path: 'admin/products', component: ProductsAdminComponent },
+      { path: 'admin/orders', component: OrdersAdminComponent }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
