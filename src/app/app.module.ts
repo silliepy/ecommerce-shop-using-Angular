@@ -25,6 +25,7 @@ import { OrdersAdminComponent } from './admin/orders-admin/orders-admin.componen
     OrderSuccessComponent,
     MyOrdersComponent,
     ProductsAdminComponent,
+    LoginComponent,
     OrdersAdminComponent
   ],
   imports: [
