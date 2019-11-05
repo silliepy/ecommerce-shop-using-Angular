@@ -1,8 +1,12 @@
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
@@ -29,8 +33,12 @@ import { OrdersAdminComponent } from './admin/orders-admin/orders-admin.componen
     OrdersAdminComponent
   ],
   imports: [
+    NgbModule, // formally as NgbModule.forRoot()
     BrowserModule,
     AppRoutingModule,
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,    
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'products', component: ProductsComponent },
@@ -38,6 +46,7 @@ import { OrdersAdminComponent } from './admin/orders-admin/orders-admin.componen
       { path: 'check-out', component: CheckoutComponent },
       { path: 'order-success', component: OrderSuccessComponent }, 
       { path: 'login', component: LoginComponent },
+      { path: 'my/orders', component: MyOrdersComponent },
       { path: 'admin/products', component: ProductsAdminComponent },
       { path: 'admin/orders', component: OrdersAdminComponent }
     ])
