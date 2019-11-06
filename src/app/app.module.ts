@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { environment } from './../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -52,7 +53,9 @@ import { OrdersAdminComponent } from './admin/orders-admin/orders-admin.componen
       { path: 'admin/orders', component: OrdersAdminComponent }
     ])
   ],
-  providers: [],
+  providers: [
+    AuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
